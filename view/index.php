@@ -1,7 +1,7 @@
 <?php
-    require ('model/database.php');
-    require ('model/advertisements.php');
-    require ('model/user.php');
+    require dirname(__DIR__)."/model/database.php";
+    require dirname(__DIR__)."/model/advertisements.php";
+    require dirname(__DIR__)."/model/user.php";
 
     $advertisement_id = filter_input(INPUT_POST, 'advertisements_id', FILTER_VALIDATE_INT);
     $title = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING);
@@ -23,9 +23,9 @@
 
     switch($action){
         default:
-            $name = getName($user_id);
+          //  $name = getName($user_id);
             $users = getUsers();
-            $advertisement = getAdvertisementsByUser($user_id);
+            $advertisements = getAdvertisementsByUser($user_id);
             include('view/advertisementlist.php');
     }
 

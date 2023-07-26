@@ -15,7 +15,7 @@
                     <?php } ?>
                     <?= $user['name'] ?>
                 </option>
-                <?php endforech; ?>
+                <?php endforeach; ?>
             </select>
             <button class="add-button bold">Mehet</button>
         </form>
