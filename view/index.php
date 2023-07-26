@@ -1,7 +1,7 @@
 <?php
-    require_once 'model/database.php';
-    require_once 'model/advertisements.php';
-    require_once 'model/user.php';
+    require ('model/database.php');
+    require ('model/advertisements.php');
+    require ('model/user.php');
 
     $advertisement_id = filter_input(INPUT_POST, 'advertisements_id', FILTER_VALIDATE_INT);
     $title = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING);
