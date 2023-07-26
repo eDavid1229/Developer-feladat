@@ -1,6 +1,6 @@
 <?php
 
-function getAdverisementsByUser($user_id){
+function getAdvertisementsByUser($user_id){
     global $db;
     if($user_id){
         $query = 'SELECT A.ID, A.title, C.name FROM advertisements A LEFT JOIN users C ON A.userID = C.userID WHERE A.userID = :user_id ORDER BY A.ID';

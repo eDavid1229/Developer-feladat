@@ -25,7 +25,7 @@
         default:
             $name = getName($user_id);
             $users = getUsers();
-            $advertisement = getAdverisementsByUser($user_id);
+            $advertisement = getAdvertisementsByUser($user_id);
             include('view/advertisementlist.php');
     }
 
