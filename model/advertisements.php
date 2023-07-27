@@ -3,9 +3,9 @@
 function getAdvertisementsByUser($user_id){
     global $db;
     if($user_id){
-        $query = 'SELECT A.ID, A.title, C.name FROM advertisements A LEFT JOIN users C ON A.userID = C.userID WHERE A.userID = :user_id ORDER BY A.ID';
+        $query = 'SELECT A.id, A.title, C.name FROM advertisements A LEFT JOIN users C ON A.userID = C.userID WHERE A.userID = :user_id ORDER BY A.ID';
     } else{
-        $query = 'SELECT A.ID, A.title, C.name FROM advertisements A LEFT JOIN users C ON A.userID = C.userID ORDER BY C.userID';
+        $query = 'SELECT A.id, A.title, C.name FROM advertisements A LEFT JOIN users C ON A.userID = C.userID ORDER BY C.userID';
     }
     $statement = $db->prepare($query);
     if ($user_id){
@@ -19,7 +19,7 @@ function getAdvertisementsByUser($user_id){
 
 function deleteAdvertisements($advertisement_id){
     global $db;
-    $querry = 'DELETE FROM advertisements WHERE ID = :adver_id';
+    $querry = 'DELETE FROM advertisements WHERE id = :adver_id';
     $statement = $db->prepare($query);
     $statement ->bindValue(' :adver_id', $advertisement_id);
     $statement->execute();

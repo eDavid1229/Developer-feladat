@@ -10,6 +10,6 @@
     catch (PDOException $e) {
         $error = "Database Erro: ";
         $error = $e->getMessage();
-        require dirname(__DIR__)."/view/error.php";
+        require dirname(__DIR__)."/view/error.php"; 
         exit();
     }
