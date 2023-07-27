@@ -8,20 +8,22 @@ function getAdvertisementsByUser($user_id){
         $query = 'SELECT A.ID, A.title, C.name FROM advertisements A LEFT JOIN users C ON A.userID = C.userID ORDER BY C.userID';
     }
     $statement = $db->prepare($query);
-    $statement ->bindValue(' :user_id', $user_id);
+    if ($user_id){
+        $statement ->bindValue(' :user_id', $user_id);
+    }
     $statement->execute();
     $advertisements = $statement->fetchAll();
-    $statement->closeCursos();
+    $statement->closeCursor();
     return $advertisements;
 }
 
-function deleteAdvertisements($advertisements_id){
+function deleteAdvertisements($advertisement_id){
     global $db;
     $querry = 'DELETE FROM advertisements WHERE ID = :adver_id';
     $statement = $db->prepare($query);
-    $statement ->bindValue(' :adver_id', $advertisements_id);
+    $statement ->bindValue(' :adver_id', $advertisement_id);
     $statement->execute();
-    $statement->closeCursos();
+    $statement->closeCursor();
 }
 function addAdvertisements($user_id, $title){
     global $db;
@@ -30,5 +32,5 @@ function addAdvertisements($user_id, $title){
     $statement ->bindValue(' :title', $title);
     $statement ->bindValue(' :userID', $user_id);
     $statement->execute();
-    $statement->closeCursos();
+    $statement->closeCursor();
 }

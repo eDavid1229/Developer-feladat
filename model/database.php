@@ -6,9 +6,10 @@
 
     try {
         $db = new PDO($dsn, $username, $password);
-    } catch (PDOException $e) {
+    }
+    catch (PDOException $e) {
         $error = "Database Erro: ";
         $error = $e->getMessage();
-        include('view/error.php');
+        require dirname(__DIR__)."/view/error.php";
         exit();
     }
